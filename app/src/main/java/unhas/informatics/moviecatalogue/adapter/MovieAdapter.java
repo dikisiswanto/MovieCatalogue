@@ -25,10 +25,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 	this.context = context;
  }
 
- public ArrayList<Movie> getMovie() {
-	return movies;
- }
-
  public void setMovies(ArrayList<Movie> movies) {
 	this.movies = movies;
  }
