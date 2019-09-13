@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">Movie Catalogue</string>
+
+    <string name="title_tab1">Movies</string>
+    <string name="title_tab2">TV Shows</string>
+    <string name="setting">Setting</string>
+    <string-array name="title">
+        <item>Avengers: Infinity War</item>
+        <item>Bird Box</item>
+        <item>Once Upon a Deadpool</item>
+        <item>Venom</item>
+        <item>Aquaman</item>
+        <item>Spider-Man: Into the Spider-Verse</item>
+        <item>A Star Is Born</item>
+        <item>Glass</item>
+        <item>Retired Thug</item>
+        <item>Creed II</item>
+    </string-array>
+    <string-array name="description">
+        <item>As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.</item>
+        <item>Five years after an ominous unseen presence drives most of society to suicide, a survivor and her two children make a desperate bid to reach safety.</item>
+        <item>A kidnapped Fred Savage is forced to endure Deadpool\'s PG-13 rendition of Deadpool 2 as a Princess Bride-esque story that\'s full of magic, wonder &amp; zero F\'s.</item>
+        <item>Investigative journalist Eddie Brock attempts a comeback following a scandal, but accidentally becomes the host of Venom, a violent, super powerful alien symbiote. Soon, he must rely on his newfound powers to protect the world from a shadowy organization looking for a symbiote of their own.</item>
+        <item>Once home to the most advanced civilization on Earth, Atlantis is now an underwater kingdom ruled by the power-hungry King Orm. With a vast army at his disposal, Orm plans to conquer the remaining oceanic people and then the surface world. Standing in his way is Arthur Curry, Orm\'s half-human, half-Atlantean brother and true heir to the throne.</item>
+        <item>Miles Morales is juggling his life between being a high school student and being a spider-man. When Wilson "Kingpin" Fisk uses a super collider, others from across the Spider-Verse are transported to this dimension.</item>
+        <item>Seasoned musician Jackson Maine discovers — and falls in love with — struggling artist Ally. She has just about given up on her dream to make it big as a singer — until Jack coaxes her into the spotlight. But even as Ally\'s career takes off, the personal side of their relationship is breaking down, as Jack fights an ongoing battle with his own internal demons.</item>
+        <item>In a series of escalating encounters, former security guard David Dunn uses his supernatural abilities to track Kevin Wendell Crumb, a disturbed man who has twenty-four personalities. Meanwhile, the shadowy presence of Elijah Price emerges as an orchestrator who holds secrets critical to both men.</item>
+        <item>After three years, the business of Muslihat (Epi Kusnandar), who has retired as a thug, has a problem. Sales decline. Muslihat also faces new problems when Safira (Safira Maharani), her only daughter, grows up in adolescence and begins to be visited by boys. A bigger problem: frictions between his former subordinates.</item>
+        <item>Between personal obligations and training for his next big fight against an opponent with ties to his family\'s past, Adonis Creed is up against the challenge of his life.</item>
+    </string-array>
+    <string-array name="release_date">
+        <item>April, 25 2018</item>
+        <item>December, 13 2018</item>
+        <item>December 11, 2018</item>
+        <item>September 28, 2018</item>
+        <item>December 7, 2018</item>
+        <item>December 6, 2018</item>
+        <item>October 3, 2018</item>
+        <item>January 16, 2019</item>
+        <item>January 17, 2019</item>
+        <item>November 21, 2018</item>
+    </string-array>
+    <string-array name="runtime">
+        <item>2h 29m</item>
+        <item>2h 4m</item>
+        <item>1h 57m</item>
+        <item>1h 52m</item>
+        <item>2h 24m</item>
+        <item>1h 57m</item>
+        <item>2h 15m</item>
+        <item>2h 9m</item>
+        <item>1h 34m</item>
+        <item>2h 10m</item>
+    </string-array>
+    <string-array name="original_language">
+        <item>English</item>
+        <item>English</item>
+        <item>English</item>
+        <item>English</item>
+        <item>English</item>
+        <item>English</item>
+        <item>English</item>
+        <item>English</item>
+        <item>Indonesian</item>
+        <item>English</item>
+    </string-array>
+    <string-array name="poster">
+        <item>@drawable/poster_avengerinfinity</item>
+        <item>@drawable/poster_birdbox</item>
+        <item>@drawable/poster_deadpool</item>
+        <item>@drawable/poster_venom</item>
+        <item>@drawable/poster_aquaman</item>
+        <item>@drawable/poster_spiderman</item>
+        <item>@drawable/poster_a_star</item>
+        <item>@drawable/poster_glass</item>
+        <item>@drawable/poster_preman</item>
+        <item>@drawable/poster_creed</item>
+    </string-array>
+</resources>
