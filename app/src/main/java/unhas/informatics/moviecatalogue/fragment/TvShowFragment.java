@@ -21,59 +21,59 @@ import unhas.informatics.moviecatalogue.model.Movie;
  */
 public class TvShowFragment extends Fragment {
 
-    private String[] title;
-    private String[] releaseDate;
-    private String[] description;
-    private String[] runtime;
-    private String[] originalLanguage;
-    private TypedArray poster;
-    private MovieAdapter adapter;
-    private ArrayList<Movie> movies;
-    private RecyclerView list_mov;
+ private String[] title;
+ private String[] releaseDate;
+ private String[] description;
+ private String[] runtime;
+ private String[] originalLanguage;
+ private TypedArray poster;
+ private MovieAdapter adapter;
+ private ArrayList<Movie> movies;
+ private RecyclerView list_tv_show;
 
-    public TvShowFragment() {
-        // Required empty public constructor
-    }
+ public TvShowFragment() {
+	// Required empty public constructor
+ }
 
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_tv_show, container, false);
-        list_mov = rootView.findViewById(R.id.list_mov);
-        list_mov.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-        adapter = new MovieAdapter(getActivity());
-        list_mov.setAdapter(adapter);
+ @Override
+ public View onCreateView(LayoutInflater inflater, ViewGroup container,
+													Bundle savedInstanceState) {
+	View rootView = inflater.inflate(R.layout.fragment_tv_show, container, false);
+	list_tv_show = rootView.findViewById(R.id.list_mov);
+	list_tv_show.setLayoutManager(new GridLayoutManager(getActivity(), 3));
+	adapter = new MovieAdapter(getActivity());
+	list_tv_show.setAdapter(adapter);
 
-        prepare();
-        addItem();
+	prepare();
+	addItem();
 
-        return rootView;
-    }
+	return rootView;
+ }
 
-    private void addItem() {
-        movies = new ArrayList<>();
+ private void addItem() {
+	movies = new ArrayList<>();
 
-        for (int i = 0; i < title.length; i++) {
-            Movie movie = new Movie();
-            movie.setTitle(title[i]);
-            movie.setDescription(description[i]);
-            movie.setReleaseDate(releaseDate[i]);
-            movie.setRuntime(runtime[i]);
-            movie.setOriginalLanguage(originalLanguage[i]);
-            movie.setPoster(poster.getResourceId(i, -1));
-            movies.add(movie);
-        }
-        adapter.setMovies(movies);
-    }
+	for (int i = 0; i < title.length; i++) {
+	 Movie movie = new Movie();
+	 movie.setTitle(title[i]);
+	 movie.setDescription(description[i]);
+	 movie.setReleaseDate(releaseDate[i]);
+	 movie.setRuntime(runtime[i]);
+	 movie.setOriginalLanguage(originalLanguage[i]);
+	 movie.setPoster(poster.getResourceId(i, -1));
+	 movies.add(movie);
+	}
+	adapter.setMovies(movies);
+ }
 
-    private void prepare() {
-        title = getResources().getStringArray(R.array.title);
-        description = getResources().getStringArray(R.array.description);
-        releaseDate = getResources().getStringArray(R.array.release_date);
-        runtime = getResources().getStringArray(R.array.runtime);
-        originalLanguage  = getResources().getStringArray(R.array.original_language);
-        poster = getResources().obtainTypedArray(R.array.poster);
-    }
+ private void prepare() {
+	title = getResources().getStringArray(R.array.tvs_title);
+	description = getResources().getStringArray(R.array.tvs_description);
+	releaseDate = getResources().getStringArray(R.array.tvs_release_date);
+	runtime = getResources().getStringArray(R.array.tvs_runtime);
+	originalLanguage  = getResources().getStringArray(R.array.tvs_original_language);
+	poster = getResources().obtainTypedArray(R.array.tvs_poster);
+ }
 
 }

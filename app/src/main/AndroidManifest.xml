@@ -8,13 +8,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/MyMaterialTheme">
-        <activity android:name="unhas.informatics.moviecatalogue.activity.MainActivity">
-
-        </activity>
-        <activity android:name="unhas.informatics.moviecatalogue.activity.SplashActivity" android:theme="@style/SplashScreenTheme">
+        android:theme="@style/MyMaterialTheme"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true">
+        <activity android:name=".activity.DetailActivity"></activity>
+        <activity android:name=".activity.MainActivity"></activity>
+        <activity
+            android:name=".activity.SplashActivity"
+            android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

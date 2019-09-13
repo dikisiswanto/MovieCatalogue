@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Movie Catalogue</string>
-    <string name="title_tab1">Movies</string>
-    <string name="title_tab2">TV Shows</string>
-    <string name="setting">Setting</string>
-    <string name="release_date_label">Release Date</string>
-    <string name="overview_label">Overview</string>
-    <string name="details">Details</string>
+    <string name="app_name">Katalog Film</string>
+    <string name="title_tab1">Film</string>
+    <string name="title_tab2">Acara TV</string>
+    <string name="setting">Pengaturan</string>
+    <string name="release_date_label">Tanggal Rilis</string>
+    <string name="overview_label">Deskripsi Singkat</string>
+    <string name="details">Detail Film</string>
     <string-array name="title">
         <item>Avengers: Infinity War</item>
         <item>Bird Box</item>
@@ -15,7 +15,7 @@
         <item>Spider-Man: Into the Spider-Verse</item>
         <item>A Star Is Born</item>
         <item>Glass</item>
-        <item>Retired Thug</item>
+        <item>Preman Pensiun</item>
         <item>Creed II</item>
     </string-array>
     <string-array name="description">
@@ -32,39 +32,39 @@
     </string-array>
     <string-array name="release_date">
         <item>April, 25 2018</item>
-        <item>December, 13 2018</item>
-        <item>December 11, 2018</item>
+        <item>Desember, 13 2018</item>
+        <item>Desember 11, 2018</item>
         <item>September 28, 2018</item>
-        <item>December 7, 2018</item>
-        <item>December 6, 2018</item>
+        <item>Desember 7, 2018</item>
+        <item>Desember 6, 2018</item>
         <item>October 3, 2018</item>
-        <item>January 16, 2019</item>
-        <item>January 17, 2019</item>
+        <item>Januari 16, 2019</item>
+        <item>Januari 17, 2019</item>
         <item>November 21, 2018</item>
     </string-array>
     <string-array name="runtime">
-        <item>2h 29m</item>
-        <item>2h 4m</item>
-        <item>1h 57m</item>
-        <item>1h 52m</item>
-        <item>2h 24m</item>
-        <item>1h 57m</item>
-        <item>2h 15m</item>
-        <item>2h 9m</item>
-        <item>1h 34m</item>
-        <item>2h 10m</item>
+        <item>2j 29m</item>
+        <item>2j 4m</item>
+        <item>1j 57m</item>
+        <item>1j 52m</item>
+        <item>2j 24m</item>
+        <item>1j 57m</item>
+        <item>2j 15m</item>
+        <item>2j 9m</item>
+        <item>1j 34m</item>
+        <item>2j 10m</item>
     </string-array>
     <string-array name="original_language">
-        <item>English</item>
-        <item>English</item>
-        <item>English</item>
-        <item>English</item>
-        <item>English</item>
-        <item>English</item>
-        <item>English</item>
-        <item>English</item>
-        <item>Indonesian</item>
-        <item>English</item>
+        <item>Bahasa Inggris</item>
+        <item>Bahasa Inggris</item>
+        <item>Bahasa Inggris</item>
+        <item>Bahasa Inggris</item>
+        <item>Bahasa Inggris</item>
+        <item>Bahasa Inggris</item>
+        <item>Bahasa Inggris</item>
+        <item>Bahasa Inggris</item>
+        <item>Bahasa Indonesia</item>
+        <item>Bahasa Inggris</item>
     </string-array>
     <string-array name="poster">
         <item>@drawable/poster_avengerinfinity</item>
@@ -91,16 +91,16 @@
         <item>Riverdale</item>
     </string-array>
     <string-array name="tvs_release_date">
-        <item>February, 26 1986</item>
-        <item>February 15, 2007</item>
-        <item>January 31, 1999</item>
+        <item>Februari 26, 1986</item>
+        <item>Februari 15, 2007</item>
+        <item>Januari 31, 1999</item>
         <item>October 26, 2015</item>
         <item>October 7, 2014</item>
         <item>October 12, 2009</item>
-        <item>January 9, 2009</item>
-        <item>December 17, 1989</item>
-        <item>March 28, 2019</item>
-        <item>January 26, 2017</item>
+        <item>Januari 9, 2009</item>
+        <item>Desember 17, 1989</item>
+        <item>Maret 28, 2019</item>
+        <item>Januari 26, 2017</item>
     </string-array>
     <string-array name="tvs_description">
         <item>Long ago in the mountains, a fighting master known as Gohan discovered a strange boy whom he named Goku. Gohan raised him and trained Goku in martial arts until he died. The young and very strong boy was on his own, but easily managed. Then one day, Goku met a teenage girl named Bulma, whose search for the dragon balls brought her to Goku\'s home. Together, they set off to find all seven dragon balls in an adventure.</item>
@@ -115,16 +115,16 @@
         <item>Set in the present, the series offers a bold, subversive take on Archie, Betty, Veronica and their friends, exploring the surreality of small-town life, the darkness and weirdness bubbling beneath Riverdale\'s wholesome facade.</item>
     </string-array>
     <string-array name="tvs_original_language">
-        <item>Japanese</item>
-        <item>Japanese</item>
-        <item>English</item>
-        <item>English</item>
-        <item>English</item>
-        <item>Japanese</item>
-        <item>English</item>
-        <item>English</item>
-        <item>English</item>
-        <item>English</item>
+        <item>Jepang</item>
+        <item>Jepang</item>
+        <item>Bahasa Inggris</item>
+        <item>Bahasa Inggris</item>
+        <item>Bahasa Inggris</item>
+        <item>Jepang</item>
+        <item>Bahasa Inggris</item>
+        <item>Bahasa Inggris</item>
+        <item>Bahasa Inggris</item>
+        <item>Bahasa Inggris</item>
     </string-array>
     <string-array name="tvs_runtime">
         <item>25m</item>
