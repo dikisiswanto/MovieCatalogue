@@ -30,8 +30,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar_detail"
             tools:ignore="MissingConstraints"
-            tools:srcCompat="@tools:sample/avatars"
-            app:layout_collapseMode="pin"/>
+            tools:srcCompat="@tools:sample/avatars"/>
 
         <ImageView
             android:id="@+id/poster"
@@ -54,8 +53,8 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
             android:layout_marginRight="24dp"
-            android:text="TextView"
-            android:textSize="16dp"
+            tools:text="TextView"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:fontFamily="@font/montserrat_bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +76,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="TextView"
+            tools:text="Lorem Ipsum"
             app:layout_constraintEnd_toEndOf="@+id/textView"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -131,7 +130,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            tools:text="Lorem ipsum dolor"
             app:layout_constraintEnd_toEndOf="@+id/poster2"
             app:layout_constraintStart_toStartOf="@+id/poster2"
             app:layout_constraintTop_toBottomOf="@+id/poster2" />
@@ -141,7 +140,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            tools:text="Lorem ismet"
             app:layout_constraintEnd_toEndOf="@+id/poster3"
             app:layout_constraintStart_toStartOf="@+id/poster3"
             app:layout_constraintTop_toBottomOf="@+id/poster3" />
@@ -166,7 +165,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
-            android:text="TextView"
+            tools:text="Overview Details ow"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView5"
