@@ -22,8 +22,6 @@ public class DetailActivity extends AppCompatActivity {
 	Movie movie = intent.getParcelableExtra("movie");
 
 	showDetails(movie);
-
-
   }
 
   private void showDetails(Movie movie) {

@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView2"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -16,32 +17,36 @@
             android:id="@+id/toolbar_detail"
             layout="@layout/toolbar_app"
             android:elevation="3dp"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
         <ImageView
             android:id="@+id/backdrop"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginBottom="16dp"
+            android:alpha="0.8"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@+id/poster"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar_detail"
+            app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints"
-            tools:srcCompat="@tools:sample/avatars"/>
+            tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
             android:id="@+id/poster"
-            android:layout_width="100dp"
-            android:layout_height="120dp"
+            android:layout_width="120dp"
+            android:layout_height="150dp"
+            android:background="@drawable/card"
+            android:elevation="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="172dp"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/backdrop"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_detail"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
@@ -53,13 +58,13 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
             android:layout_marginRight="24dp"
-            tools:text="TextView"
             android:textSize="16sp"
             android:textStyle="bold"
             app:fontFamily="@font/montserrat_bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/poster"
-            app:layout_constraintTop_toBottomOf="@+id/backdrop" />
+            app:layout_constraintTop_toBottomOf="@+id/backdrop"
+            tools:text="TextView" />
 
         <TextView
             android:id="@+id/textView"
@@ -76,17 +81,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            tools:text="Lorem Ipsum"
             app:layout_constraintEnd_toEndOf="@+id/textView"
             app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:text="Lorem Ipsum" />
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="413dp" />
+            app:layout_constraintGuide_begin="397dp" />
 
         <ImageView
             android:id="@+id/poster2"
@@ -130,20 +135,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            tools:text="Lorem ipsum dolor"
             app:layout_constraintEnd_toEndOf="@+id/poster2"
             app:layout_constraintStart_toStartOf="@+id/poster2"
-            app:layout_constraintTop_toBottomOf="@+id/poster2" />
+            app:layout_constraintTop_toBottomOf="@+id/poster2"
+            tools:text="Lorem ipsum dolor" />
 
         <TextView
             android:id="@+id/original_language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            tools:text="Lorem ismet"
             app:layout_constraintEnd_toEndOf="@+id/poster3"
             app:layout_constraintStart_toStartOf="@+id/poster3"
-            app:layout_constraintTop_toBottomOf="@+id/poster3" />
+            app:layout_constraintTop_toBottomOf="@+id/poster3"
+            tools:text="Lorem ismet" />
 
         <TextView
             android:id="@+id/textView5"
@@ -165,11 +170,11 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
-            tools:text="Overview Details ow"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            tools:text="Overview Details ow" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
