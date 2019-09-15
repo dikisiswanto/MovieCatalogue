@@ -60,7 +60,6 @@ public class MovieFragment extends Fragment {
 		  mShimmerViewContainer.stopShimmer();
 		  mShimmerViewContainer.setVisibility(View.GONE);
 		  adapter.setMovies(movies);
-
 		}
 	}
   };
