@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
 	tabLayout = findViewById(R.id.tabs);
 	tabLayout.setupWithViewPager(viewPager);
 	setupTabIcons();
+
+
  }
 
  @Override
@@ -66,4 +68,5 @@ public class MainActivity extends AppCompatActivity {
 	adapter.addFragment(new TvShowFragment(), getResources().getString(R.string.title_tab2));
 	viewPager.setAdapter(adapter);
  }
+
 }

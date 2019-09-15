@@ -37,13 +37,13 @@
 
         <ImageView
             android:id="@+id/poster"
-            android:layout_width="120dp"
-            android:layout_height="150dp"
-            android:background="@drawable/card"
-            android:elevation="16dp"
+            android:layout_width="130dp"
+            android:layout_height="170dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="172dp"
+            android:background="@drawable/card"
+            android:elevation="16dp"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar_detail"
@@ -91,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="397dp" />
+            app:layout_constraintGuide_begin="423dp" />
 
         <ImageView
             android:id="@+id/poster2"
@@ -106,7 +106,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline"
-            app:srcCompat="@drawable/baseline_access_time_black_48dp" />
+            app:srcCompat="@drawable/baseline_star_half_black_36" />
 
         <ImageView
             android:id="@+id/poster3"
@@ -131,7 +131,7 @@
             app:layout_constraintGuide_percent="0.5" />
 
         <TextView
-            android:id="@+id/runtime"
+            android:id="@+id/vote_average"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -158,7 +158,7 @@
             android:text="@string/overview_label"
             app:fontFamily="@font/montserrat_bold"
             app:layout_constraintStart_toStartOf="@+id/poster"
-            app:layout_constraintTop_toBottomOf="@+id/runtime" />
+            app:layout_constraintTop_toBottomOf="@+id/vote_average" />
 
         <TextView
             android:id="@+id/overview"

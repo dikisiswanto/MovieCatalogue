@@ -7,4 +7,5 @@
     <color name="navigationBarColor">#000000</color>
     <color name="colorAccent">#c8e8ff</color>
     <color name="textColorDark">#525252</color>
+    <color name="placeholder_bg">#dddddd</color>
 </resources>

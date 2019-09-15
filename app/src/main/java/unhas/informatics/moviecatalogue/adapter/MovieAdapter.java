@@ -10,8 +10,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
 import java.util.ArrayList;
 
+import unhas.informatics.moviecatalogue.BuildConfig;
 import unhas.informatics.moviecatalogue.R;
 import unhas.informatics.moviecatalogue.activity.DetailActivity;
 import unhas.informatics.moviecatalogue.model.Movie;
@@ -19,7 +23,7 @@ import unhas.informatics.moviecatalogue.model.Movie;
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
  private Context context;
- private ArrayList<Movie> movies;
+ private ArrayList<Movie> movies = new ArrayList<>();
 
  public MovieAdapter(Context context) {
 	this.context = context;
@@ -27,9 +31,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
  public void setMovies(ArrayList<Movie> movies) {
 	this.movies = movies;
+	notifyDataSetChanged();
  }
 
- @NonNull
+  @NonNull
  @Override
  public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 	View mView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item, viewGroup, false);
@@ -48,13 +53,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
 
  public class MovieViewHolder extends RecyclerView.ViewHolder {
-	private ImageView moviePoster;
+   private ImageView poster;
 	private TextView movieTitle;
 
 	public MovieViewHolder(@NonNull View itemView) {
 	 super(itemView);
-	 moviePoster = itemView.findViewById(R.id.poster);
 	 movieTitle = itemView.findViewById(R.id.title);
+	 poster = itemView.findViewById(R.id.poster);
 	 itemView.setOnClickListener(new View.OnClickListener() {
 	   @Override
 	   public void onClick(View v) {
@@ -66,7 +71,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 	}
 
 	public void bind(Movie movie) {
-	 moviePoster.setImageResource(movie.getPoster());
+	  Glide.with(context)
+			  .load(BuildConfig.IMG_URL+movie.getPoster())
+			  .apply(new RequestOptions())
+			  .into(poster);
 	 movieTitle.setText(movie.getTitle());
 	}
  }

@@ -1,8 +1,10 @@
 package unhas.informatics.moviecatalogue.fragment;
 
 
-import android.content.res.TypedArray;
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,8 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
+
 import java.util.ArrayList;
 
+import unhas.informatics.moviecatalogue.MainViewModel;
 import unhas.informatics.moviecatalogue.R;
 import unhas.informatics.moviecatalogue.adapter.MovieAdapter;
 import unhas.informatics.moviecatalogue.model.Movie;
@@ -21,59 +26,37 @@ import unhas.informatics.moviecatalogue.model.Movie;
  */
 public class TvShowFragment extends Fragment {
 
- private String[] title;
- private String[] releaseDate;
- private String[] description;
- private String[] runtime;
- private String[] originalLanguage;
- private TypedArray poster;
- private MovieAdapter adapter;
- private ArrayList<Movie> movies;
- private RecyclerView list_tv_show;
-
- public TvShowFragment() {
-	// Required empty public constructor
- }
-
+  private MovieAdapter adapter;
+  private ShimmerFrameLayout mShimmerViewContainer;
+	 public TvShowFragment() {
+		// Required empty public constructor
+	 }
 
  @Override
  public View onCreateView(LayoutInflater inflater, ViewGroup container,
 													Bundle savedInstanceState) {
 	View rootView = inflater.inflate(R.layout.fragment_tv_show, container, false);
-	list_tv_show = rootView.findViewById(R.id.list_mov);
+	RecyclerView list_tv_show = rootView.findViewById(R.id.list_mov);
 	list_tv_show.setLayoutManager(new GridLayoutManager(getActivity(), 3));
 	adapter = new MovieAdapter(getActivity());
 	list_tv_show.setAdapter(adapter);
 
-	prepare();
-	addItem();
+	 MainViewModel mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+	 mainViewModel.setMovies("tv");
+	 mainViewModel.getMovies().observe(this, getMovies);
+	 mShimmerViewContainer = rootView.findViewById(R.id.shimmer_view_container);
+	 mShimmerViewContainer.startShimmer();
 
-	return rootView;
+   return rootView;
  }
-
- private void addItem() {
-	movies = new ArrayList<>();
-
-	for (int i = 0; i < title.length; i++) {
-	 Movie movie = new Movie();
-	 movie.setTitle(title[i]);
-	 movie.setDescription(description[i]);
-	 movie.setReleaseDate(releaseDate[i]);
-	 movie.setRuntime(runtime[i]);
-	 movie.setOriginalLanguage(originalLanguage[i]);
-	 movie.setPoster(poster.getResourceId(i, -1));
-	 movies.add(movie);
+  private Observer<ArrayList<Movie>> getMovies = new Observer<ArrayList<Movie>>() {
+	@Override
+	public void onChanged(@Nullable ArrayList<Movie> movies) {
+	  if (movies != null){
+		mShimmerViewContainer.stopShimmer();
+		mShimmerViewContainer.setVisibility(View.GONE);
+		adapter.setMovies(movies);
+	  }
 	}
-	adapter.setMovies(movies);
- }
-
- private void prepare() {
-	title = getResources().getStringArray(R.array.tvs_title);
-	description = getResources().getStringArray(R.array.tvs_description);
-	releaseDate = getResources().getStringArray(R.array.tvs_release_date);
-	runtime = getResources().getStringArray(R.array.tvs_runtime);
-	originalLanguage  = getResources().getStringArray(R.array.tvs_original_language);
-	poster = getResources().obtainTypedArray(R.array.tvs_poster);
- }
-
+  };
 }
