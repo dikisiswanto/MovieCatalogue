@@ -2,9 +2,17 @@
     <string name="app_name">Movie Catalogue</string>
     <string name="title_tab1">Movies</string>
     <string name="title_tab2">TV Shows</string>
+    <string name="title_tab3">Favorites</string>
     <string name="setting">Setting</string>
     <string name="release_date_label">Release Date</string>
     <string name="overview_label">Overview</string>
     <string name="details">Details</string>
+    <string name="success_insert_fav">Add to favorites successfully</string>
+    <string name="delete_from_fav">Delete from favorites</string>
+    <string name="confirm_message">Are you sure want to delete this item?</string>
+    <string name="confirm_title">Confirm to delete</string>
+    <string name="pos_btn">Yes</string>
+    <string name="neg_btn">No</string>
+    <string name="success_info">Delete from favorites successfully</string>
 
 </resources>

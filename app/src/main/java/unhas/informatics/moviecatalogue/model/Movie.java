@@ -1,114 +1,135 @@
 package unhas.informatics.moviecatalogue.model;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Index;
+import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "movie", indices = @Index(value = {"title"}, unique = true))
 public class Movie implements Parcelable {
-  @SerializedName(value = "title", alternate = {"name"})
-  private String title;
-  @SerializedName(value = "release_date", alternate = {"first_air_date"})
-  private String releaseDate;
-  @SerializedName("overview")
-  private String description;
-  @SerializedName("vote_average")
-  private String voteAverage;
-  @SerializedName("original_language")
-  private String originalLanguage;
-  @SerializedName("poster_path")
-  private String poster;
+	@PrimaryKey(autoGenerate = true)
+	private int uid;
+	@SerializedName(value = "title", alternate = {"name"})
+	private String title;
+	@SerializedName(value = "release_date", alternate = {"first_air_date"})
+	private String releaseDate;
+	@SerializedName("overview")
+	private String description;
+	@SerializedName("vote_average")
+	private String voteAverage;
+	@SerializedName("original_language")
+	private String originalLanguage;
+	@SerializedName("poster_path")
+	private String poster;
+	private int movieType;
 
-  public String getTitle() {
-	return title;
-  }
+	public int getUid() {
+		return uid;
+	}
 
-  public void setTitle(String title) {
-	this.title = title;
-  }
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
 
-  public String getReleaseDate() {
-	return releaseDate;
-  }
+	public String getTitle() {
+		return title;
+	}
 
-  public void setReleaseDate(String releaseDate) {
-	this.releaseDate = releaseDate;
-  }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-  public String getDescription() {
-	return description;
-  }
+	public String getReleaseDate() {
+		return releaseDate;
+	}
 
-  public void setDescription(String description) {
-	this.description = description;
-  }
+	public void setReleaseDate(String releaseDate) {
+		this.releaseDate = releaseDate;
+	}
 
-  public String getVoteAverage() {
-	return voteAverage;
-  }
+	public String getDescription() {
+		return description;
+	}
 
-  public void setVoteAverage(String voteAverage) {
-	this.voteAverage = voteAverage;
-  }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-  public String getOriginalLanguage() {
-	return originalLanguage;
-  }
+	public String getVoteAverage() {
+		return voteAverage;
+	}
 
-  public void setOriginalLanguage(String originalLanguage) {
-	this.originalLanguage = originalLanguage;
-  }
+	public void setVoteAverage(String voteAverage) {
+		this.voteAverage = voteAverage;
+	}
 
-  public String getPoster() {
-	return poster;
-  }
+	public String getOriginalLanguage() {
+		return originalLanguage;
+	}
 
-  public void setPoster(String poster) {
-	this.poster = poster;
-  }
+	public void setOriginalLanguage(String originalLanguage) {
+		this.originalLanguage = originalLanguage;
+	}
 
-  public Movie(String title, String releaseDate, String description, String voteAverage, String originalLanguage, String poster) {
-	this.title = title;
-	this.releaseDate = releaseDate;
-	this.description = description;
-	this.voteAverage = voteAverage;
-	this.originalLanguage = originalLanguage;
-	this.poster = poster;
-  }
+	public String getPoster() {
+		return poster;
+	}
 
-  @Override
-  public int describeContents() {
-	return 0;
-  }
+	public void setPoster(String poster) {
+		this.poster = poster;
+	}
 
-  @Override
-  public void writeToParcel(Parcel dest, int flags) {
-	dest.writeString(this.title);
-	dest.writeString(this.releaseDate);
-	dest.writeString(this.description);
-	dest.writeString(this.voteAverage);
-	dest.writeString(this.originalLanguage);
-	dest.writeString(this.poster);
-  }
+	public int getMovieType() {
+		return movieType;
+	}
 
-  protected Movie(Parcel in) {
-	this.title = in.readString();
-	this.releaseDate = in.readString();
-	this.description = in.readString();
-	this.voteAverage = in.readString();
-	this.originalLanguage = in.readString();
-	this.poster = in.readString();
-  }
-
-  public static final Creator<Movie> CREATOR = new Creator<Movie>() {
-	@Override
-	public Movie createFromParcel(Parcel source) {
-	  return new Movie(source);
+	public void setMovieType(int movieType) {
+		this.movieType = movieType;
 	}
 
 	@Override
-	public Movie[] newArray(int size) {
-	  return new Movie[size];
+	public int describeContents() {
+		return 0;
 	}
-  };
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeInt(this.uid);
+		dest.writeString(this.title);
+		dest.writeString(this.releaseDate);
+		dest.writeString(this.description);
+		dest.writeString(this.voteAverage);
+		dest.writeString(this.originalLanguage);
+		dest.writeString(this.poster);
+		dest.writeInt(this.movieType);
+	}
+
+	public Movie() {
+	}
+
+	protected Movie(Parcel in) {
+		this.uid = in.readInt();
+		this.title = in.readString();
+		this.releaseDate = in.readString();
+		this.description = in.readString();
+		this.voteAverage = in.readString();
+		this.originalLanguage = in.readString();
+		this.poster = in.readString();
+		this.movieType = in.readInt();
+	}
+
+	public static final Creator<Movie> CREATOR = new Creator<Movie>() {
+		@Override
+		public Movie createFromParcel(Parcel source) {
+			return new Movie(source);
+		}
+
+		@Override
+		public Movie[] newArray(int size) {
+			return new Movie[size];
+		}
+	};
 }
