@@ -14,7 +14,6 @@ public class ApiClient {
 	private static Retrofit retrofit = null;
 
 	public static Retrofit getClient() {
-
 		OkHttpClient okHttpClient = new OkHttpClient().newBuilder().addInterceptor(new Interceptor() {
 			@Override
 			public okhttp3.Response intercept(Chain chain) throws IOException {

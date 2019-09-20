@@ -38,19 +38,19 @@ public class MovieFragment extends Fragment {
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
 						   Bundle savedInstanceState) {
 
-	View rootView = inflater.inflate(R.layout.fragment_movie, container, false);
-	RecyclerView list_mov = rootView.findViewById(R.id.list_mov);
-	list_mov.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-	adapter = new MovieAdapter(getActivity());
-	list_mov.setAdapter(adapter);
+	  View rootView = inflater.inflate(R.layout.fragment_movie, container, false);
+	  RecyclerView list_mov = rootView.findViewById(R.id.list_mov);
+	  list_mov.setLayoutManager(new GridLayoutManager(getActivity(), 3));
+	  adapter = new MovieAdapter(getActivity());
+	  list_mov.setAdapter(adapter);
 
-	MainViewModel mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-	mainViewModel.setMovies("movie");
-	mainViewModel.getMovies().observe(this, getMovies);
-	mShimmerViewContainer = rootView.findViewById(R.id.shimmer_view_container);
-	mShimmerViewContainer.startShimmer();
+	  MainViewModel mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+	  mainViewModel.setMovies("movie");
+	  mainViewModel.getMovies().observe(this, getMovies);
+	  mShimmerViewContainer = rootView.findViewById(R.id.shimmer_view_container);
+	  mShimmerViewContainer.startShimmer();
 
-	return rootView;
+	  return rootView;
   }
 
   private Observer<ArrayList<Movie>> getMovies = new Observer<ArrayList<Movie>>() {

@@ -19,7 +19,7 @@ import unhas.informatics.moviecatalogue.model.MovieResponse;
 public class MainViewModel extends ViewModel {
   private MutableLiveData<ArrayList<Movie>> movieList = new MutableLiveData<>();
 
-  public void setMovies(String movieType) {
+	public void setMovies(final String movieType) {
 	ApiEndpoints apiService = ApiClient.getClient().create(ApiEndpoints.class);
 	Call<MovieResponse> call = apiService.getMovies(movieType);
 	call.enqueue(new Callback<MovieResponse>() {
@@ -27,6 +27,9 @@ public class MainViewModel extends ViewModel {
 	  public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
 	    try {
 		  ArrayList<Movie> movies = response.body().getResults();
+		    for (Movie data : movies) {
+			    data.setMovieType(movieType.equals("movie") ? 1 : 2);
+		    }
 		  movieList.postValue(movies);
 	    } catch (Exception e){
 		    Log.d(MainActivity.class.getSimpleName(), e.getLocalizedMessage());
@@ -39,6 +42,10 @@ public class MainViewModel extends ViewModel {
 	  }
 	});
   }
+
+	public void setFavMovie(ArrayList<Movie> movies) {
+		movieList.postValue(movies);
+	}
 
   public LiveData<ArrayList<Movie>> getMovies() {
     return movieList;

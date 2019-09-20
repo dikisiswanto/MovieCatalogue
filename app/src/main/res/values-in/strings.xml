@@ -2,8 +2,16 @@
     <string name="app_name">Katalog Film</string>
     <string name="title_tab1">Film</string>
     <string name="title_tab2">Acara TV</string>
+    <string name="title_tab3">Favorit</string>
     <string name="setting">Pengaturan</string>
     <string name="release_date_label">Tanggal Rilis</string>
     <string name="overview_label">Deskripsi Singkat</string>
     <string name="details">Detail Film</string>
+    <string name="success_insert_fav">Berhasil menambahkan ke daftar favorit</string>
+    <string name="delete_from_fav">Hapus dari favorit</string>
+    <string name="confirm_message">Yakin ingin menghapus item ini?</string>
+    <string name="confirm_title">Konfirmasi penghapusan</string>
+    <string name="pos_btn">Ya</string>
+    <string name="neg_btn">Tidak</string>
+    <string name="success_info">Berhasil menghapus dari daftar favorit</string>
 </resources>

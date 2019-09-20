@@ -25,5 +25,4 @@
         android:stretchMode="columnWidth"
         android:focusable="true"
         android:clickable="true"/>
-
 </FrameLayout>
