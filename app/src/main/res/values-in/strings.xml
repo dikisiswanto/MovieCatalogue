@@ -14,4 +14,6 @@
     <string name="pos_btn">Ya</string>
     <string name="neg_btn">Tidak</string>
     <string name="success_info">Berhasil menghapus dari daftar favorit</string>
+    <string name="search">Cari</string>
+    <string name="not_found">Tidak ada hasil yang cocok, silakan coba lagi!</string>
 </resources>

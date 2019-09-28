@@ -31,7 +31,7 @@ public class ApiClient {
 			}
 		}).build();
 
-		if (retrofit==null) {
+		if (retrofit == null) {
 			retrofit = new Retrofit.Builder()
 					.client(okHttpClient)
 					.baseUrl(BuildConfig.API_BASE_URL)

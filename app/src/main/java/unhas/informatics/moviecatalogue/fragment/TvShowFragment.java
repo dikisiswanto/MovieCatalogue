@@ -26,37 +26,39 @@ import unhas.informatics.moviecatalogue.model.Movie;
  */
 public class TvShowFragment extends Fragment {
 
-  private MovieAdapter adapter;
-  private ShimmerFrameLayout mShimmerViewContainer;
-	 public TvShowFragment() {
+	private MovieAdapter adapter;
+	private ShimmerFrameLayout mShimmerViewContainer;
+
+	public TvShowFragment() {
 		// Required empty public constructor
-	 }
-
- @Override
- public View onCreateView(LayoutInflater inflater, ViewGroup container,
-													Bundle savedInstanceState) {
-	View rootView = inflater.inflate(R.layout.fragment_tv_show, container, false);
-	RecyclerView list_tv_show = rootView.findViewById(R.id.list_mov);
-	list_tv_show.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-	adapter = new MovieAdapter(getActivity());
-	list_tv_show.setAdapter(adapter);
-
-	 MainViewModel mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-	 mainViewModel.setMovies("tv");
-	 mainViewModel.getMovies().observe(this, getMovies);
-	 mShimmerViewContainer = rootView.findViewById(R.id.shimmer_view_container);
-	 mShimmerViewContainer.startShimmer();
-
-   return rootView;
- }
-  private Observer<ArrayList<Movie>> getMovies = new Observer<ArrayList<Movie>>() {
-	@Override
-	public void onChanged(@Nullable ArrayList<Movie> movies) {
-	  if (movies != null){
-		mShimmerViewContainer.stopShimmer();
-		mShimmerViewContainer.setVisibility(View.GONE);
-		adapter.setMovies(movies);
-	  }
 	}
-  };
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+	                         Bundle savedInstanceState) {
+		View rootView = inflater.inflate(R.layout.fragment_tv_show, container, false);
+		RecyclerView listTvShow = rootView.findViewById(R.id.list_mov);
+		listTvShow.setLayoutManager(new GridLayoutManager(getActivity(), 3));
+		adapter = new MovieAdapter(getActivity());
+		listTvShow.setAdapter(adapter);
+
+		MainViewModel mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+		mainViewModel.setMovies("tv");
+		mainViewModel.getMovies().observe(this, getMovies);
+		mShimmerViewContainer = rootView.findViewById(R.id.shimmer_view_container);
+		mShimmerViewContainer.startShimmer();
+
+		return rootView;
+	}
+
+	private Observer<ArrayList<Movie>> getMovies = new Observer<ArrayList<Movie>>() {
+		@Override
+		public void onChanged(@Nullable ArrayList<Movie> movies) {
+			if (movies != null) {
+				mShimmerViewContainer.stopShimmer();
+				mShimmerViewContainer.setVisibility(View.GONE);
+				adapter.setMovies(movies);
+			}
+		}
+	};
 }

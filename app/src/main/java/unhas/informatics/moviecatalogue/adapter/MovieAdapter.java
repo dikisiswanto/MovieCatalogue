@@ -22,60 +22,60 @@ import unhas.informatics.moviecatalogue.model.Movie;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
- private Context context;
- private ArrayList<Movie> movies = new ArrayList<>();
+	private Context context;
+	private ArrayList<Movie> movies = new ArrayList<>();
 
- public MovieAdapter(Context context) {
-	this.context = context;
- }
-
- public void setMovies(ArrayList<Movie> movies) {
-	this.movies = movies;
-	notifyDataSetChanged();
- }
-
-  @NonNull
- @Override
- public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-	View mView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item, viewGroup, false);
-	return new MovieViewHolder(mView);
- }
-
- @Override
- public void onBindViewHolder(@NonNull MovieViewHolder movieViewHolder, int i) {
-	movieViewHolder.bind(movies.get(i));
- }
-
- @Override
- public int getItemCount() {
-	return movies.size();
- }
-
-
- public class MovieViewHolder extends RecyclerView.ViewHolder {
-   private ImageView poster;
-	private TextView movieTitle;
-
-	public MovieViewHolder(@NonNull View itemView) {
-	 super(itemView);
-	 movieTitle = itemView.findViewById(R.id.title);
-	 poster = itemView.findViewById(R.id.poster);
-	 itemView.setOnClickListener(new View.OnClickListener() {
-	   @Override
-	   public void onClick(View v) {
-		 Intent details = new Intent(context, DetailActivity.class);
-		 details.putExtra("movie", movies.get(getAdapterPosition()));
-		 context.startActivity(details);
-	   }
-	 });
+	public MovieAdapter(Context context) {
+		this.context = context;
 	}
 
-	public void bind(Movie movie) {
-	  Glide.with(context)
-			  .load(BuildConfig.IMG_URL+movie.getPoster())
-			  .apply(new RequestOptions())
-			  .into(poster);
-	 movieTitle.setText(movie.getTitle());
+	public void setMovies(ArrayList<Movie> movies) {
+		this.movies = movies;
+		notifyDataSetChanged();
 	}
- }
+
+	@NonNull
+	@Override
+	public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+		View mView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item, viewGroup, false);
+		return new MovieViewHolder(mView);
+	}
+
+	@Override
+	public void onBindViewHolder(@NonNull MovieViewHolder movieViewHolder, int i) {
+		movieViewHolder.bind(movies.get(i));
+	}
+
+	@Override
+	public int getItemCount() {
+		return movies.size();
+	}
+
+
+	public class MovieViewHolder extends RecyclerView.ViewHolder {
+		private ImageView poster;
+		private TextView movieTitle;
+
+		public MovieViewHolder(@NonNull View itemView) {
+			super(itemView);
+			movieTitle = itemView.findViewById(R.id.title);
+			poster = itemView.findViewById(R.id.poster);
+			itemView.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent details = new Intent(context, DetailActivity.class);
+					details.putExtra("movie", movies.get(getAdapterPosition()));
+					context.startActivity(details);
+				}
+			});
+		}
+
+		public void bind(Movie movie) {
+			Glide.with(context)
+					.load(BuildConfig.IMG_URL + movie.getPoster())
+					.apply(new RequestOptions())
+					.into(poster);
+			movieTitle.setText(movie.getTitle());
+		}
+	}
 }

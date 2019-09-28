@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.TvShowFragment">
+
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmer_view_container"
         android:layout_width="wrap_content"
@@ -11,7 +12,7 @@
         android:layout_gravity="center"
         android:orientation="vertical">
 
-        <include layout="@layout/movie_placeholder_grid"/>
+        <include layout="@layout/movie_placeholder_grid" />
 
     </com.facebook.shimmer.ShimmerFrameLayout>
 
@@ -24,5 +25,5 @@
         android:numColumns="auto_fit"
         android:stretchMode="columnWidth"
         android:focusable="true"
-        android:clickable="true"/>
+        android:clickable="true" />
 </FrameLayout>

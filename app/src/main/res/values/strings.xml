@@ -14,5 +14,18 @@
     <string name="pos_btn">Yes</string>
     <string name="neg_btn">No</string>
     <string name="success_info">Delete from favorites successfully</string>
+    <string name="search">Search</string>
+    <string name="not_found">Nothing found, try another query!</string>
+    <string name="empty_text">Empty data</string>
+    <string name="language">Language</string>
+    <string name="release_reminder_title">Release Reminder</string>
+    <string name="daily_reminder_title">Daily Reminder</string>
+    <string name="daily_reminder_desc">Reminder for return to app</string>
+    <string name="release_reminder_desc">Reminder showing the movie that released today</string>
+    <string name="notification_setting_title">Notification Setting</string>
+    <string name="daily_message_reminder">Let\'s see what movies are popular today!</string>
+    <string name="release_reminder_message">has been released today!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

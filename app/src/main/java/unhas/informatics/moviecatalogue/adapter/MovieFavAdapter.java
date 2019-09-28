@@ -1,10 +1,13 @@
 package unhas.informatics.moviecatalogue.adapter;
 
 import android.app.AlertDialog;
+import android.appwidget.AppWidgetManager;
 import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -69,7 +71,7 @@ public class MovieFavAdapter extends RecyclerView.Adapter<MovieFavAdapter.MovieF
 			btnDelete = itemView.findViewById(R.id.btn_delete);
 		}
 
-		public void bind(final Movie movie) {
+		private void bind(final Movie movie) {
 			Glide.with(context)
 					.load(BuildConfig.IMG_URL + movie.getPoster())
 					.apply(new RequestOptions())
@@ -78,7 +80,7 @@ public class MovieFavAdapter extends RecyclerView.Adapter<MovieFavAdapter.MovieF
 			description.setText(movie.getDescription());
 			btnDelete.setOnClickListener(new View.OnClickListener() {
 				@Override
-				public void onClick(View v) {
+				public void onClick(final View v) {
 					final AlertDialog.Builder builder = new AlertDialog.Builder(itemView.getContext());
 					builder.setTitle(R.string.confirm_title);
 					builder.setMessage(R.string.confirm_message);
@@ -93,7 +95,9 @@ public class MovieFavAdapter extends RecyclerView.Adapter<MovieFavAdapter.MovieF
 							movieDAO.deleteByUid(movies.get(getAdapterPosition()).getUid());
 							movies.remove(movie);
 							notifyDataSetChanged();
-							Toast.makeText(context, R.string.success_info, Toast.LENGTH_SHORT).show();
+							Intent brIntent = new Intent(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+							context.sendBroadcast(brIntent);
+							Snackbar.make(v, R.string.success_info, Snackbar.LENGTH_SHORT).show();
 						}
 					});
 					builder.setNegativeButton(R.string.neg_btn, new DialogInterface.OnClickListener() {
