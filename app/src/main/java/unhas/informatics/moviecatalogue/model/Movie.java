@@ -1,5 +1,6 @@
 package unhas.informatics.moviecatalogue.model;
 
+import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
@@ -12,19 +13,23 @@ import com.google.gson.annotations.SerializedName;
 public class Movie implements Parcelable {
 	@PrimaryKey(autoGenerate = true)
 	private int uid;
+	@ColumnInfo(name = "title")
 	@SerializedName(value = "title", alternate = {"name"})
 	private String title;
 	@SerializedName(value = "release_date", alternate = {"first_air_date"})
 	private String releaseDate;
 	@SerializedName("overview")
+	@ColumnInfo(name = "description")
 	private String description;
 	@SerializedName("vote_average")
 	private String voteAverage;
 	@SerializedName("original_language")
 	private String originalLanguage;
 	@SerializedName("poster_path")
+	@ColumnInfo(name = "poster")
 	private String poster;
-	private int movieType;
+	@SerializedName("media_type")
+	private String movieType;
 
 	public int getUid() {
 		return uid;
@@ -82,11 +87,11 @@ public class Movie implements Parcelable {
 		this.poster = poster;
 	}
 
-	public int getMovieType() {
+	public String getMovieType() {
 		return movieType;
 	}
 
-	public void setMovieType(int movieType) {
+	public void setMovieType(String movieType) {
 		this.movieType = movieType;
 	}
 
@@ -104,7 +109,7 @@ public class Movie implements Parcelable {
 		dest.writeString(this.voteAverage);
 		dest.writeString(this.originalLanguage);
 		dest.writeString(this.poster);
-		dest.writeInt(this.movieType);
+		dest.writeString(this.movieType);
 	}
 
 	public Movie() {
@@ -118,7 +123,7 @@ public class Movie implements Parcelable {
 		this.voteAverage = in.readString();
 		this.originalLanguage = in.readString();
 		this.poster = in.readString();
-		this.movieType = in.readInt();
+		this.movieType = in.readString();
 	}
 
 	public static final Creator<Movie> CREATOR = new Creator<Movie>() {

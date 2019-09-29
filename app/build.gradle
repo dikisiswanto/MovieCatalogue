@@ -19,6 +19,7 @@ android {
             buildConfigField "String", "API_BASE_URL", API_BASE_URL
             buildConfigField "String", "API_KEY", API_KEY
             buildConfigField "String", "IMG_URL", IMG_URL
+            buildConfigField "String", "MY_SHARED_PREFERENCES", MY_SHARED_PREFERENCES
         }
     }
 }

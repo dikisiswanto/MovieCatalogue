@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/localization_btn"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/baseline_search_24"
+        android:title="@string/search"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView" />
+    <item
+        android:id="@+id/localization_btn"
+        android:title="@string/language"
+        android:icon="@drawable/outline_settings_applications_24"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/notification_btn"
         android:title="@string/setting"
-        android:icon="@drawable/baseline_settings_applications_24"
-        app:showAsAction="always"/>
+        android:icon="@drawable/outline_notifications_24"
+        app:showAsAction="always" />
 </menu>

@@ -14,4 +14,15 @@
     <string name="pos_btn">Ya</string>
     <string name="neg_btn">Tidak</string>
     <string name="success_info">Berhasil menghapus dari daftar favorit</string>
+    <string name="search">Cari</string>
+    <string name="not_found">Tidak ada hasil yang cocok, silakan coba lagi!</string>
+    <string name="empty_text">Data Kosong</string>
+    <string name="language">Bahasa</string>
+    <string name="release_reminder_title">Notifikasi Rilis</string>
+    <string name="daily_reminder_title">Pengingat Harian</string>
+    <string name="daily_reminder_desc">Pengingat kembali ke aplikasi</string>
+    <string name="release_reminder_desc">Notifikasi mengenai rilis hari ini</string>
+    <string name="notification_setting_title">Pengaturan Notifikasi</string>
+    <string name="daily_message_reminder">Cek film yang lagi trending hari ini!</string>
+    <string name="release_reminder_message">telah dirilis hari ini</string>
 </resources>

@@ -11,7 +11,8 @@
         android:id="@+id/poster"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/title"

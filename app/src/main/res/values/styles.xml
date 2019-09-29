@@ -1,18 +1,24 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
-    </style>
+    <style name="MyMaterialTheme" parent="MyMaterialTheme.Base"></style>
 
     <style name="SplashScreenTheme" parent="MyMaterialTheme.Base">
         <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
+
     <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorSecondary">@android:color/darker_gray</item>
+        <item name="android:editTextColor">@android:color/white</item>
     </style>
 
+    <style name="BottomNavigationTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+    </style>
 </resources>

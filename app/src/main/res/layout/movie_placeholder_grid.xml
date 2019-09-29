@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -8,18 +9,24 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:baselineAligned="false">
-        <include layout="@layout/movie_placeholder_item"
+
+        <include
+            layout="@layout/movie_placeholder_item"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"/>
-        <include layout="@layout/movie_placeholder_item"
+            android:layout_width="match_parent" />
+
+        <include
+            layout="@layout/movie_placeholder_item"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"/>
-        <include layout="@layout/movie_placeholder_item"
+            android:layout_width="match_parent" />
+
+        <include
+            layout="@layout/movie_placeholder_item"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"/>
+            android:layout_width="match_parent" />
     </LinearLayout>
 
     <LinearLayout
@@ -27,18 +34,24 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:baselineAligned="false">
-        <include layout="@layout/movie_placeholder_item"
+
+        <include
+            layout="@layout/movie_placeholder_item"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"/>
-        <include layout="@layout/movie_placeholder_item"
+            android:layout_width="match_parent" />
+
+        <include
+            layout="@layout/movie_placeholder_item"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"/>
-        <include layout="@layout/movie_placeholder_item"
+            android:layout_width="match_parent" />
+
+        <include
+            layout="@layout/movie_placeholder_item"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"/>
+            android:layout_width="match_parent" />
     </LinearLayout>
 
     <LinearLayout
@@ -46,18 +59,24 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:baselineAligned="false">
-        <include layout="@layout/movie_placeholder_item"
+
+        <include
+            layout="@layout/movie_placeholder_item"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"/>
-        <include layout="@layout/movie_placeholder_item"
+            android:layout_width="match_parent" />
+
+        <include
+            layout="@layout/movie_placeholder_item"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"/>
-        <include layout="@layout/movie_placeholder_item"
+            android:layout_width="match_parent" />
+
+        <include
+            layout="@layout/movie_placeholder_item"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"/>
+            android:layout_width="match_parent" />
     </LinearLayout>
 
 </LinearLayout>

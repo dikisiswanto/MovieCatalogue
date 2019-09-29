@@ -39,10 +39,10 @@ public class TvShowFavFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_tv_show_fav, container, false);
-		RecyclerView list_fav_mov = rootView.findViewById(R.id.list_fav_mov);
-		list_fav_mov.setLayoutManager(new LinearLayoutManager(getActivity()));
+		RecyclerView listFavMov = rootView.findViewById(R.id.list_fav_mov);
+		listFavMov.setLayoutManager(new LinearLayoutManager(getActivity()));
 		adapter = new MovieFavAdapter(getActivity());
-		list_fav_mov.setAdapter(adapter);
+		listFavMov.setAdapter(adapter);
 
 		ArrayList<Movie> data = (ArrayList<Movie>) loadFavMovies();
 
@@ -58,10 +58,10 @@ public class TvShowFavFragment extends Fragment {
 				.allowMainThreadQueries()
 				.build();
 		MovieDAO movieDAO = database.getMovieDAO();
-		return movieDAO.getMoviesByMovieType(2);
+		return movieDAO.getMoviesByMovieType("tv");
 	}
 
-	Observer<ArrayList<Movie>> getMovies = new Observer<ArrayList<Movie>>() {
+	private Observer<ArrayList<Movie>> getMovies = new Observer<ArrayList<Movie>>() {
 		@Override
 		public void onChanged(@Nullable ArrayList<Movie> movies) {
 			if (movies != null)

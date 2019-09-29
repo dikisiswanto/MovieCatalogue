@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="unhas.informatics.moviecatalogue">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme">
-        <activity android:name=".activity.DetailActivity"></activity>
-        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.NotificationSettingActivity"></activity>
+        <activity android:name=".activity.DetailActivity" />
+        <activity android:name=".activity.MainActivity" />
         <activity
             android:name=".activity.SplashActivity"
             android:theme="@style/SplashScreenTheme">
@@ -22,6 +21,37 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".reminder.NotificationReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver android:name=".widget.FavMovieWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/fav_movie_widget_info" />
+        </receiver>
+
+        <provider
+            android:name=".provider.FavMovieProvider"
+            android:authorities="unhas.informatics.moviecatalogue.provider"
+            android:multiprocess="true"
+            android:enabled="true"
+            android:exported="true" />
+
+        <service
+            android:name=".widget.FavMovieService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <permission
+        android:name="unhas.informatics.moviecatalogue.provider.READ_DATABASE"
+        android:protectionLevel="normal" />
 
 </manifest>
