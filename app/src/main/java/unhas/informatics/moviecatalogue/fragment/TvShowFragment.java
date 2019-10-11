@@ -16,6 +16,8 @@ import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import unhas.informatics.moviecatalogue.MainViewModel;
 import unhas.informatics.moviecatalogue.R;
 import unhas.informatics.moviecatalogue.adapter.MovieAdapter;
@@ -26,8 +28,11 @@ import unhas.informatics.moviecatalogue.model.Movie;
  */
 public class TvShowFragment extends Fragment {
 
+	@BindView(R.id.list_mov)
+	RecyclerView listTvShow;
+	@BindView(R.id.shimmer_view_container)
+	ShimmerFrameLayout mShimmerViewContainer;
 	private MovieAdapter adapter;
-	private ShimmerFrameLayout mShimmerViewContainer;
 
 	public TvShowFragment() {
 		// Required empty public constructor
@@ -37,16 +42,15 @@ public class TvShowFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_tv_show, container, false);
-		RecyclerView listTvShow = rootView.findViewById(R.id.list_mov);
+		ButterKnife.bind(this, rootView);
 		listTvShow.setLayoutManager(new GridLayoutManager(getActivity(), 3));
 		adapter = new MovieAdapter(getActivity());
 		listTvShow.setAdapter(adapter);
+		mShimmerViewContainer.startShimmer();
 
 		MainViewModel mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
 		mainViewModel.setMovies("tv");
 		mainViewModel.getMovies().observe(this, getMovies);
-		mShimmerViewContainer = rootView.findViewById(R.id.shimmer_view_container);
-		mShimmerViewContainer.startShimmer();
 
 		return rootView;
 	}

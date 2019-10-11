@@ -10,16 +10,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CompoundButton;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import unhas.informatics.moviecatalogue.BuildConfig;
 import unhas.informatics.moviecatalogue.R;
 import unhas.informatics.moviecatalogue.reminder.NotificationReceiver;
 
 public class NotificationSettingActivity extends AppCompatActivity {
+	@BindView(R.id.daily_switch)
+	SwitchCompat dailyReminderSwitch;
+	@BindView(R.id.release_switch)
+	SwitchCompat releaseReminderSwitch;
+	@BindView(R.id.toolbar_notif)
+	Toolbar toolbar;
+
 	private SharedPreferences sharedPreferences;
 	private SharedPreferences.Editor sharedPreferenceEdit;
-	private SwitchCompat dailyReminderSwitch, releaseReminderSwitch;
 	private NotificationReceiver notificationReceiver;
-
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,18 +34,15 @@ public class NotificationSettingActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_notification_setting);
 
 		sharedPreferences = getSharedPreferences(BuildConfig.MY_SHARED_PREFERENCES, Context.MODE_PRIVATE);
-		dailyReminderSwitch = findViewById(R.id.daily_switch);
-		releaseReminderSwitch = findViewById(R.id.release_switch);
-
 		notificationReceiver = new NotificationReceiver(this);
 
+		ButterKnife.bind(this);
 		initToolbar();
 		listenSwitchChanged();
 		setPreferences();
 	}
 
 	private void initToolbar() {
-		Toolbar toolbar = findViewById(R.id.toolbar_notif);
 		setSupportActionBar(toolbar);
 		if (getSupportActionBar() != null) {
 			getSupportActionBar().setDisplayHomeAsUpEnabled(true);
