@@ -22,6 +22,8 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import unhas.informatics.moviecatalogue.BuildConfig;
 import unhas.informatics.moviecatalogue.R;
 import unhas.informatics.moviecatalogue.db.MovieDAO;
@@ -59,16 +61,18 @@ public class MovieFavAdapter extends RecyclerView.Adapter<MovieFavAdapter.MovieF
 	}
 
 	public class MovieFavViewHolder extends RecyclerView.ViewHolder {
-		private ImageView poster;
-		private TextView title, description;
+		@BindView(R.id.title_fav)
+		TextView title;
+		@BindView(R.id.description_fav)
+		TextView description;
+		@BindView(R.id.poster_fav)
+		ImageView poster;
+		@BindView(R.id.btn_delete)
 		Button btnDelete;
 
 		public MovieFavViewHolder(@NonNull final View itemView) {
 			super(itemView);
-			poster = itemView.findViewById(R.id.poster_fav);
-			description = itemView.findViewById(R.id.description_fav);
-			title = itemView.findViewById(R.id.title_fav);
-			btnDelete = itemView.findViewById(R.id.btn_delete);
+			ButterKnife.bind(this, itemView);
 		}
 
 		private void bind(final Movie movie) {

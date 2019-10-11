@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import unhas.informatics.moviecatalogue.MainViewModel;
 import unhas.informatics.moviecatalogue.R;
 import unhas.informatics.moviecatalogue.adapter.MovieFavAdapter;
@@ -28,6 +30,8 @@ import unhas.informatics.moviecatalogue.model.Movie;
  */
 public class TvShowFavFragment extends Fragment {
 
+	@BindView(R.id.list_fav_mov)
+	RecyclerView listFavMov;
 	MovieFavAdapter adapter;
 
 	public TvShowFavFragment() {
@@ -39,7 +43,7 @@ public class TvShowFavFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_tv_show_fav, container, false);
-		RecyclerView listFavMov = rootView.findViewById(R.id.list_fav_mov);
+		ButterKnife.bind(this, rootView);
 		listFavMov.setLayoutManager(new LinearLayoutManager(getActivity()));
 		adapter = new MovieFavAdapter(getActivity());
 		listFavMov.setAdapter(adapter);

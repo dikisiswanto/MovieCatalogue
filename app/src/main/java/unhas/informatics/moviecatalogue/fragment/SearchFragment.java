@@ -17,6 +17,8 @@ import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import unhas.informatics.moviecatalogue.MainViewModel;
 import unhas.informatics.moviecatalogue.R;
 import unhas.informatics.moviecatalogue.adapter.MovieAdapter;
@@ -27,8 +29,11 @@ import unhas.informatics.moviecatalogue.model.Movie;
  */
 public class SearchFragment extends Fragment {
 
+	@BindView(R.id.shimmer_view_container)
+	ShimmerFrameLayout mShimmerViewContainer;
+	@BindView(R.id.list_mov_result)
+	RecyclerView searchResult;
 	private MovieAdapter adapter;
-	private ShimmerFrameLayout mShimmerViewContainer;
 
 	public SearchFragment() {
 		// Required empty public constructor
@@ -39,19 +44,17 @@ public class SearchFragment extends Fragment {
 	                         Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
 		View rootView = inflater.inflate(R.layout.fragment_search, container, false);
-		RecyclerView searchResult = rootView.findViewById(R.id.list_mov_result);
+		ButterKnife.bind(this, rootView);
 		searchResult.setLayoutManager(new GridLayoutManager(getActivity(), 3));
 		adapter = new MovieAdapter(getActivity());
 		searchResult.setAdapter(adapter);
+		mShimmerViewContainer.startShimmer();
 
 		String query = getArguments().getString("query");
 
 		MainViewModel mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
 		mainViewModel.searchMovie(query);
 		mainViewModel.getMovies().observe(this, getMovieResult);
-
-		mShimmerViewContainer = rootView.findViewById(R.id.shimmer_view_container);
-		mShimmerViewContainer.startShimmer();
 
 		return rootView;
 	}
