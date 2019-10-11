@@ -7,11 +7,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import de.hdodenhof.circleimageview.CircleImageView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MovieViewHolder> {
 	private Cursor mCursor;
@@ -44,21 +46,23 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
 	}
 
 	public class MovieViewHolder extends RecyclerView.ViewHolder {
-		private TextView title, description;
-		private CircleImageView imageView;
+		@BindView(R.id.title_fav)
+		TextView title;
+		@BindView(R.id.description_fav)
+		TextView description;
+		@BindView(R.id.poster_fav)
+		ImageView poster;
 
 		public MovieViewHolder(@NonNull View itemView) {
 			super(itemView);
-			title = itemView.findViewById(R.id.title_fav);
-			description = itemView.findViewById(R.id.description_fav);
-			imageView = itemView.findViewById(R.id.poster_fav);
+			ButterKnife.bind(this, itemView);
 		}
 
 		public void bind(boolean moveToPosition) {
 			if (moveToPosition) {
 				title.setText(mCursor.getString(mCursor.getColumnIndexOrThrow(Utils.COLUMN_TITLE)));
 				description.setText(mCursor.getString(mCursor.getColumnIndexOrThrow(Utils.COLUMN_DESCRIPTION)));
-				Glide.with(context).load(Utils.POSTER_BASE_URL + mCursor.getString(mCursor.getColumnIndexOrThrow(Utils.COLUMN_POSTER))).into(imageView);
+				Glide.with(context).load(Utils.POSTER_BASE_URL + mCursor.getString(mCursor.getColumnIndexOrThrow(Utils.COLUMN_POSTER))).into(poster);
 			}
 		}
 	}

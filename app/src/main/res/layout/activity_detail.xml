@@ -2,11 +2,10 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scrollView2"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <android.support.constraint.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:isScrollContainer="true"
@@ -16,7 +15,6 @@
         <include
             android:id="@+id/toolbar_detail"
             layout="@layout/toolbar_app"
-            android:elevation="3dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
         <ImageView
@@ -33,7 +31,8 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbar_detail"
             app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="TODO" />
 
         <ImageView
             android:id="@+id/poster"
@@ -47,7 +46,8 @@
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar_detail"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="TODO" />
 
         <TextView
             android:id="@+id/title"

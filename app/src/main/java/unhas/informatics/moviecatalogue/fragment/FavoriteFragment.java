@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import unhas.informatics.moviecatalogue.R;
 import unhas.informatics.moviecatalogue.adapter.ViewPagerAdapter;
 
@@ -17,19 +19,21 @@ import unhas.informatics.moviecatalogue.adapter.ViewPagerAdapter;
  */
 public class FavoriteFragment extends Fragment {
 
+	@BindView(R.id.viewpager)
+	ViewPager viewPager;
+	@BindView(R.id.tabs)
+	TabLayout tabLayout;
+
 	public FavoriteFragment() {
 		// Required empty public constructor
 	}
-
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_favorite, container, false);
-		ViewPager viewPager = rootView.findViewById(R.id.viewpager);
+		ButterKnife.bind(this, rootView);
 		setupViewPager(viewPager);
-
-		TabLayout tabLayout = rootView.findViewById(R.id.tabs);
 		tabLayout.setupWithViewPager(viewPager);
 		return rootView;
 	}

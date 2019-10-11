@@ -13,6 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import unhas.informatics.moviecatalogue.R;
 import unhas.informatics.moviecatalogue.fragment.FavoriteFragment;
 import unhas.informatics.moviecatalogue.fragment.MovieFragment;
@@ -20,24 +22,23 @@ import unhas.informatics.moviecatalogue.fragment.SearchFragment;
 import unhas.informatics.moviecatalogue.fragment.TvShowFragment;
 
 public class MainActivity extends AppCompatActivity {
-
+	@BindView(R.id.toolbar)
+	Toolbar toolbar;
+	@BindView(R.id.navigation)
+	BottomNavigationView navigation;
 	private SearchView mSearchView;
-	private BottomNavigationView navigation;
-	private Toolbar toolbar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		toolbar = findViewById(R.id.toolbar);
+		ButterKnife.bind(this);
 		setSupportActionBar(toolbar);
-
-		navigation = findViewById(R.id.navigation);
 		navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-		if (getSupportActionBar() != null)
+		if (getSupportActionBar() != null) {
+			getSupportActionBar().setElevation(0);
 			getSupportActionBar().setTitle(R.string.title_tab1);
+		}
 		if (savedInstanceState == null) {
 			loadFragment(new MovieFragment());
 		}

@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import unhas.informatics.moviecatalogue.BuildConfig;
 import unhas.informatics.moviecatalogue.R;
 import unhas.informatics.moviecatalogue.db.MovieDAO;
@@ -22,6 +24,23 @@ import unhas.informatics.moviecatalogue.db.MovieDatabase;
 import unhas.informatics.moviecatalogue.model.Movie;
 
 public class DetailActivity extends AppCompatActivity {
+
+	@BindView(R.id.toolbar_detail)
+	Toolbar toolbar;
+	@BindView(R.id.title)
+	TextView title;
+	@BindView(R.id.overview)
+	TextView description;
+	@BindView(R.id.original_language)
+	TextView originalLanguage;
+	@BindView(R.id.release_date)
+	TextView releaseDate;
+	@BindView(R.id.vote_average)
+	TextView voteAverage;
+	@BindView(R.id.poster)
+	ImageView poster;
+	@BindView(R.id.backdrop)
+	ImageView backdrop;
 
 	private Movie movie;
 	private MovieDAO movieDAO;
@@ -34,6 +53,7 @@ public class DetailActivity extends AppCompatActivity {
 		Intent intent = getIntent();
 		movie = intent.getParcelableExtra("movie");
 
+		ButterKnife.bind(this);
 		initToolbar();
 		showDetails(movie);
 
@@ -44,7 +64,6 @@ public class DetailActivity extends AppCompatActivity {
 	}
 
 	private void initToolbar() {
-		Toolbar toolbar = findViewById(R.id.toolbar_detail);
 		setSupportActionBar(toolbar);
 		if (getSupportActionBar() != null) {
 			getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -53,14 +72,6 @@ public class DetailActivity extends AppCompatActivity {
 	}
 
 	private void showDetails(Movie movie) {
-		TextView title = findViewById(R.id.title);
-		TextView originalLanguage = findViewById(R.id.original_language);
-		TextView description = findViewById(R.id.overview);
-		TextView releaseDate = findViewById(R.id.release_date);
-		TextView voteAverage = findViewById(R.id.vote_average);
-		ImageView poster = findViewById(R.id.poster);
-		ImageView backdrop = findViewById(R.id.backdrop);
-
 		title.setText(movie.getTitle());
 		originalLanguage.setText(movie.getOriginalLanguage());
 		description.setText(movie.getDescription());

@@ -15,6 +15,8 @@ import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import unhas.informatics.moviecatalogue.BuildConfig;
 import unhas.informatics.moviecatalogue.R;
 import unhas.informatics.moviecatalogue.activity.DetailActivity;
@@ -53,13 +55,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
 
 	public class MovieViewHolder extends RecyclerView.ViewHolder {
-		private ImageView poster;
-		private TextView movieTitle;
+		@BindView(R.id.title)
+		TextView movieTitle;
+		@BindView(R.id.poster)
+		ImageView poster;
 
 		public MovieViewHolder(@NonNull View itemView) {
 			super(itemView);
-			movieTitle = itemView.findViewById(R.id.title);
-			poster = itemView.findViewById(R.id.poster);
+			ButterKnife.bind(this, itemView);
 			itemView.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {

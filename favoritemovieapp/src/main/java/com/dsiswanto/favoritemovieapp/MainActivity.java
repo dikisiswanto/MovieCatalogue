@@ -11,17 +11,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
 	private static final int CODE_MOVIE = 1;
 	private MovieListAdapter adapter;
+	@BindView(R.id.list_fav_mov)
+	RecyclerView list;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		final RecyclerView list = findViewById(R.id.list_fav_mov);
-		list.setLayoutManager(new LinearLayoutManager(list.getContext()));
+		ButterKnife.bind(this);
+		list.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 		adapter = new MovieListAdapter(getApplicationContext());
 		list.setAdapter(adapter);
 		getSupportLoaderManager().initLoader(CODE_MOVIE, null, this);
